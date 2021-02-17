@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      job:
+        one: Vaga
+        other: Vagas
+    attributes:
+      job:
+        title: "Título"
+        description: "Descrição"
+        salary_range: "Faixa Salarial"
+        level: "Nível"
+        requirements: "Requisitos"
+        expiration_date: "Expira em"
+        total_job: "Quantidade de Vaga"
+        levels:
+          junior: "Júnior"
+          full: "Pleno"
+          senior: "Sênior"

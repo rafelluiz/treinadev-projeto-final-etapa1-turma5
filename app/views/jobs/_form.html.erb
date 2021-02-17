@@ -6,7 +6,7 @@
 <%= form_with(model: job, local: true) do |form| %>
   <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :name,class:'form-control' %>
+    <%= form.text_field :title ,class:'form-control' %>
   </div>
   <div class="form-group">
     <%= form.label :description %>
@@ -18,7 +18,7 @@
   </div>
   <div class="form-group">
     <%= form.label :level %>
-    <%= form.select :level, options_for_select(Job.levels.map{|key, value|[key.titleize,Job.levels.key(value)]},job.level)  %>
+    <%= form.select :level, options_for_select(Job.levels.map{|key, value|[key,Job.levels.key(value)]},job.level)  %>
   </div>
   <div class="form-group">
     <%= form.label :requirements %>

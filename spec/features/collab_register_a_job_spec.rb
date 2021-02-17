@@ -9,12 +9,12 @@ feature 'Collaborator register a job' do
     fill_in 'Título', with: 'Programador Delphi'
     fill_in 'Descrição', with: 'Estamos a procura de um profissional...'
     fill_in 'Faixa Salarial', with: '1000'
-    select  'Júnior', from: 'Nível'
+    select  'junior', from: 'Nível'
     fill_in 'Requisitos', with: 'Experiência de 2 anos na função'
     fill_in 'Expira em', with: '22/12/2021'
     fill_in 'Quantidade de Vaga', with: '3'
 
-    click_on 'Criar vaga'
+    click_on 'Criar Vaga'
 
     job = Job.last
 
@@ -22,7 +22,7 @@ feature 'Collaborator register a job' do
     expect(page).to have_content('Programador Delphi')
     expect(page).to have_content('Estamos a procura de um profissional...')
     expect(page).to have_content('1000')
-    expect(page).to have_content('Júnior')
+    expect(page).to have_content('junior')
     expect(page).to have_content('Experiência de 2 anos na função')
     expect(page).to have_content('22/12/2021')
     expect(page).to have_content('3')
