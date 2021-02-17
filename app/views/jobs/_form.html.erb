@@ -1,0 +1,38 @@
+<% if job.errors.any? %>
+  <p>Não foi possível criar a promoção</p>
+  <p>Confira os erros abaixo:</p>
+  Erros: <%= job.errors.full_messages.join(', ') %>
+<% end %>
+<%= form_with(model: job, local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :name,class:'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description,class:'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :salary_range %>
+    <%= form.text_field  :salary_range %>
+  </div>
+  <div class="form-group">
+    <%= form.label :level %>
+    <%= form.select :level, options_for_select(Job.levels.map{|key, value|[key.titleize,Job.levels.key(value)]},job.level)  %>
+  </div>
+  <div class="form-group">
+    <%= form.label :requirements %>
+    <%= form.text_area :requirements %>
+  </div>
+  <div class="form-group">
+    <%= form.label :expiration_date %>
+    <%= form.date_field  :expiration_date %>
+  </div>
+  <div class="form-group">
+    <%= form.label :total_job %>
+    <%= form.text_field  :total_job %>
+  </div>
+  <div class="actions">
+    <%= form.submit button_submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
