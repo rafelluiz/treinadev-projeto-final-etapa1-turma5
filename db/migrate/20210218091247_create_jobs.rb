@@ -3,7 +3,8 @@ class CreateJobs < ActiveRecord::Migration[6.1]
     create_table :jobs do |t|
       t.string :title
       t.text :description
-      t.decimal :salary_range
+      t.decimal :starting_salary_range
+      t.decimal :final_salary_range
       t.integer :level
       t.text :requirements
       t.date :expiration_date
