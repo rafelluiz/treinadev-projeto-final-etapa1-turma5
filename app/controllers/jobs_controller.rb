@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[]
+  before_action :set_job, only: %i[show]
   def index;end
+
+  def show; end
 
   def new
     @job = Job.new
@@ -23,7 +25,7 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :description, :salary_range, :level, :requirements,
-                                :expiration_date, :total_job)
+    params.require(:job).permit(:title, :description, :starting_salary_range, :final_salary_range, :level, :requirements,
+                                :expiration_date, :total_job,)
   end
 end

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Título:</strong>
+  <%= @job.title %></p>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @job.description %>
+</p>
+
+<p>
+  <strong>Faixa Salarial:</strong>
+  De <%= number_to_currency(@job.starting_salary_range,precision: 2) %>
+  a <%= number_to_currency(@job.final_salary_range,precision:2 ) %>
+</p>
+
+<p>
+  <strong>Nível:</strong>
+  <%= @job.level %>
+</p>
+
+<p>
+  <strong>Requisitos:</strong>
+  <%= @job.requirements %>
+</p>
+
+<p>
+  <strong>Expira em:</strong>
+  <%= l(@job.expiration_date) %>
+</p>
+
+<p>
+  <strong>Quantidade de Vaga(s):</strong>
+  <%= @job.total_job %>
+</p>
+<#%= link_to 'Edit', edit_job_path(@job) %> |
+<#%= link_to 'Back', restaurants_path %>

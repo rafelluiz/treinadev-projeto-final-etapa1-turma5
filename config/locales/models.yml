@@ -8,7 +8,8 @@ pt-BR:
       job:
         title: "Título"
         description: "Descrição"
-        salary_range: "Faixa Salarial"
+        starting_salary_range: "Faixa Salarial Inicial"
+        final_salary_range: "Faixa Salarial Final"
         level: "Nível"
         requirements: "Requisitos"
         expiration_date: "Expira em"
