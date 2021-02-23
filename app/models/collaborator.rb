@@ -17,6 +17,8 @@ class Collaborator < ApplicationRecord
     if company.count.zero?
       Company.create!(name:company_name,
                       email_domain:domain_company, collaborator:self)
+      collaborator = Collaborator.find(id)
+      collaborator.update(admin:true)
 
     end
   end
