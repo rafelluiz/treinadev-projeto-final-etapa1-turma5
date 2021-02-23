@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+[logo]:(https://produtive.me/wp-content/uploads/2019/08/notion-logo-no-background.png)
+## [Acompanhe Notion](https://www.notion.so/Projeto-final-Etapa-1-Turma-5-e38bb1fed5b74cb5b4a16bacd3645071) 
