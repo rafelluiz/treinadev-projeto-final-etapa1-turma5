@@ -35,5 +35,10 @@
   <strong>Quantidade de Vaga(s):</strong>
   <%= @job.total_job %>
 </p>
+<p>
+  <strong>Empresa</strong>
+  <%= @job.company.name %>
+</p>
+
 <#%= link_to 'Edit', edit_job_path(@job) %> |
 <#%= link_to 'Back', restaurants_path %>

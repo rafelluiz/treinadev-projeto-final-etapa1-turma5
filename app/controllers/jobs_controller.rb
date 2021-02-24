@@ -11,7 +11,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-
+    @job.company = current_collaborator.company
     if @job.save
       redirect_to @job, notice: 'Job was successfully created.'
     else
