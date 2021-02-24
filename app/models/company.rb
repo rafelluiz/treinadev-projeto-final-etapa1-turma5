@@ -1,3 +1,3 @@
 class Company < ApplicationRecord
-  belongs_to :collaborator
+  has_many :collaborators
 end

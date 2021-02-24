@@ -2,6 +2,10 @@ require 'rails_helper'
 
 feature 'Collaborator register a job' do
   scenario 'successfully' do
+    creator = Collaborator.create!(email: 'joao@email.com', password: '123456')
+
+    login_as creator, scope: :collaborator
+
     visit root_path
     click_on 'Vagas'
     click_on 'Registrar uma vaga'

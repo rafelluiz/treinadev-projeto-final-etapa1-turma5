@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User sign up' do
   scenario 'successfully not Admin' do
-
+    Collaborator.create!(email:'admin@example.com',password:'password')
     visit root_path
     click_on 'Colaborador'
     click_on 'Sign up'
@@ -13,7 +13,7 @@ feature 'User sign up' do
       click_on 'Inscrever-se'
     end
 
-    #expect(page).to have_content 'email@example.com'
+    expect(Collaborator.last.admin?).to eq false
     expect(page).to have_content 'Bem vindo! Você realizou seu registro com sucesso.'
     #expect(page).to have_content 'Sair'
   end

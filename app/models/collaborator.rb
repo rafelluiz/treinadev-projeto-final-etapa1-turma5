@@ -4,22 +4,26 @@ class Collaborator < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  belongs_to :company
   validate :is_company?
 
-  after_create :register_company
+  before_validation :register_company
 
   private
   def register_company
+
     domain_company = email.split('@')[1]
-    company_name =  domain_company.split('.')[0]
+    company_name = domain_company.split('.')[0]
     company = Company.where(email_domain: domain_company)
 
     if company.count.zero?
-      Company.create!(name:company_name,
-                      email_domain:domain_company, collaborator:self)
-      collaborator = Collaborator.find(id)
-      collaborator.update(admin:true)
+      company_created = Company.create!(name: company_name,
+                                        email_domain: domain_company)
 
+      self.company = company_created
+      self.admin = true
+    else
+      self.company_id = company.first.id
     end
   end
 
@@ -28,9 +32,7 @@ class Collaborator < ApplicationRecord
 
     domain = email.split('@')[1].split('.')[0]
 
-    if public_provider_email.include?(domain)
-      errors.add(email,'E-mail deve conter domínio empresarial.')
-    end
+    errors.add(email,' deve conter domínio empresarial.') if public_provider_email.include?(domain)
 
   end
 end

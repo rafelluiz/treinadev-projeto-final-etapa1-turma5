@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[show]
+  before_action :authenticate_collaborator!
   def index;end
 
   def show; end
