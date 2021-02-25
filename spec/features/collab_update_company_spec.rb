@@ -11,13 +11,13 @@ feature 'Collaborator update company' do
 
     fill_in 'Nome', with: 'algorithm me'
     attach_file 'Logomarca', Rails.root.join('spec', 'support', 'logo.jpg')
-    fill_in 'Endereço', 'Rua das flores, Numero 0'
-    fill_in 'Site', 'www.algorithm.com'
-    fill_in 'Twitter', 'http://twitter.com/algorithm'
-    fill_in 'Facebook', 'http://facebook.com/algorithm'
-    fill_in 'Instagram', 'http://instagram.com/algorithm'
-    fill_in 'LinkedIn', 'http://linkedin.com/algorithm'
-    fill_in 'E-mail','algorithm@algorithm.com'
+    fill_in 'Endereço', with: 'Rua das flores, Numero 0'
+    fill_in 'Site', with: 'www.algorithm.com'
+    fill_in 'Twitter', with: 'http://twitter.com/algorithm'
+    fill_in 'Facebook', with: 'http://facebook.com/algorithm'
+    fill_in 'Instagram', with: 'http://instagram.com/algorithm'
+    fill_in 'LinkedIn', with: 'http://linkedin.com/algorithm'
+    fill_in 'E-Mail',with: 'algorithm@algorithm.com'
 
     click_on 'Enviar'
 

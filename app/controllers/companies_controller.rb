@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[show edit]
+  before_action :set_company, only: %i[show edit update]
   before_action :authenticate_collaborator!
 
   def show;end
