@@ -15,6 +15,7 @@ feature 'User sign up' do
 
     expect(Collaborator.last.admin?).to eq false
     expect(page).to have_content 'Bem vindo! Você realizou seu registro com sucesso.'
+    expect(page).not_to have_content 'Conclua o Cadastro da Empresa. Só assim poderá cadastrar vagas.'
     #expect(page).to have_content 'Sair'
   end
 
@@ -32,8 +33,9 @@ feature 'User sign up' do
     end
 
     company = Company.last
-
+    expect(page).to have_content 'Conclua o Cadastro da Empresa. Só assim poderá cadastrar vagas.'
     expect(company.email_domain).to eq 'example.com'
+    expect(page).to have_link 'Concluir Cadastro'
 
   end
 end

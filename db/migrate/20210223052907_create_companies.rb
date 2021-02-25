@@ -9,7 +9,7 @@ class CreateCompanies < ActiveRecord::Migration[6.1]
       t.string :instagram
       t.string :linkedin
       t.string :email_domain
-      t.boolean :registration_completed
+      t.boolean :registration_completed, default: false
       t.references :collaborator, null: false, foreign_key: true
 
       t.timestamps

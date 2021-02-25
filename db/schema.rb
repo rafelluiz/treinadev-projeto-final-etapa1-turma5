@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_151928) do
     t.string "instagram"
     t.string "linkedin"
     t.string "email_domain"
-    t.boolean "registration_completed"
+    t.boolean "registration_completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -12,6 +12,10 @@
 
   <body>
 
+  <% if collaborator_signed_in? && !current_collaborator.company.registration_completed? && current_collaborator.admin? %>
+    <p>Conclua o Cadastro da Empresa. Só assim poderá cadastrar vagas.</p>
+    <%= link_to 'Concluir Cadastro', edit_company_path(current_collaborator.company)  %>
+  <% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
