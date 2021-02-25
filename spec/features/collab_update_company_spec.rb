@@ -26,6 +26,8 @@ feature 'Collaborator update company' do
     expect(company.registration_completed).to eq true
     expect(current_path).to eq company_path(company)
     expect(page).not_to have_content 'Conclua o Cadastro da Empresa. Só assim poderá cadastrar vagas.'
+    expect(page).to have_content 'Company was successfully updated.'
+    expect(page).to have_content 'algorithm me'
     expect(page).to have_content 'Rua das flores, Numero 0'
     expect(page).to have_content 'www.algorithm.com'
     expect(page).to have_content 'http://twitter.com/algorithm'
@@ -33,7 +35,6 @@ feature 'Collaborator update company' do
     expect(page).to have_content 'http://instagram.com/algorithm'
     expect(page).to have_content 'http://linkedin.com/algorithm'
     expect(page).to have_content 'algorithm@algorithm.com'
-    expect(page).to have_content 'Domínio: algorithm.com'
     expect(page).to have_css('img[src*="logo.jpg"]')
   end
 end

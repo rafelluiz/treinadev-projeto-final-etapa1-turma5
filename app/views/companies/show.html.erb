@@ -1,0 +1,48 @@
+<% if flash.notice %>
+  <%= flash.notice %>
+<% end %>
+<%= link_to 'Voltar', root_path %>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <%= image_tag(@company.logo) %>
+</p>
+
+<p>
+  <strong>site:</strong>
+  <%= @company.site %>
+</p>
+
+<p>
+  <strong>E-Mail:</strong>
+  <%= @company.email %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @company.twitter %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @company.facebook %>
+</p>
+
+<p>
+  <span>Instagram</span>
+  <%= @company.instagram %>
+</p>
+
+<p>
+  <span>LinkedIn</span>
+  <%= @company.linkedin %>
+</p>
+
+<p>
+  <strong>Endereço:</strong>
+  <%= @company.address %>
+</p>

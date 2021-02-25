@@ -1,7 +1,10 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[show]
   before_action :authenticate_collaborator!
-  def index;end
+  def index
+    collaborator = current_collaborator
+    @collaborator_job = collaborator.company.jobs
+  end
 
   def show; end
 
