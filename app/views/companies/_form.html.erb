@@ -1,0 +1,55 @@
+<% if company.errors.any? %>
+  <p>Não foi possível criar uma empresa</p>
+  <p>Confira os erros abaixo:</p>
+  Erros: <%= company.errors.full_messages.join(', ') %>
+<% end %>
+<%= form_with(model: company, local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :logo %>
+    <%= form.file_field :logo %>
+  </div>
+  <div class="form-group">
+    <%= form.label :name%>
+    <%= form.text_field :name,class:'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_area :address,class:'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :site %>
+    <%= form.text_field  :site %>
+  </div>
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field  :email %>
+  </div>
+  <div class="form-group">
+    <%= form.label :email %>twitter
+    <%= form.text_field  :email %>
+  </div>
+  <div class="form-group">
+    <%= form.label :twitter %>
+    <%= form.text_field :twitter %>
+  </div>
+  <div class="form-group">
+    <%= form.label :facebook %>
+    <%= form.text_field  :facebook %>
+  </div>
+  <div class="form-group">
+    <%= form.label :instagram %>
+    <%= form.text_field  :instagram %>
+  </div>
+  <div class="form-group">
+    <%= form.label :linkedin %>
+    <%= form.text_field  :linkedin %>
+  </div>
+  <div class="form-group">
+    <%= form.label :email_domain %>
+    <%= form.text_field  :email_domain, readonly: :true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit button_submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

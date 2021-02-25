@@ -4,6 +4,10 @@ pt-BR:
       job:
         one: Vaga
         other: Vagas
+
+      company:
+        on: Empresa
+        other: Empresas
     attributes:
       job:
         title: "Título"
@@ -18,3 +22,10 @@ pt-BR:
           junior: "Júnior"
           full: "Pleno"
           senior: "Sênior"
+
+      company:
+        name: Nome
+        logo: Logomarca
+        address: Endereço
+        email: E-Mail
+        email_domain: Domínio
