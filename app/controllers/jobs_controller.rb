@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[show]
+  before_action :set_job, only: %i[show edit update]
   before_action :authenticate_collaborator!
   def index
     collaborator = current_collaborator
@@ -19,6 +19,16 @@ class JobsController < ApplicationController
       redirect_to @job, notice: 'Job was successfully created.'
     else
       render :new ,notice: 'Job could not be created.'
+    end
+  end
+
+  def edit;end
+
+  def update
+    if @job.update(job_params)
+      redirect_to @job, notice: 'Job was successfully updated.'
+    else
+      render :edit, notice: 'Job could not be updated.'
     end
   end
 

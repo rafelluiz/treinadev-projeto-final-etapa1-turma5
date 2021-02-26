@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
     if @company.update(company_params)
       redirect_to @company, notice: 'Company was successfully updated.'
     else
-      render :edit
+      render :edit,notice: 'Company was not updated.'
     end
   end
 
