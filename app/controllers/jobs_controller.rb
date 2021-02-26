@@ -3,7 +3,7 @@ class JobsController < ApplicationController
   before_action :authenticate_collaborator!
   def index
     collaborator = current_collaborator
-    @collaborator_job = collaborator.company.jobs
+    @collaborator_job = collaborator.company
   end
 
   def show; end
