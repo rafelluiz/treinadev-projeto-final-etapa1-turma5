@@ -1,6 +1,10 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: %i[show edit update]
-  before_action :authenticate_collaborator!
+  before_action :authenticate_collaborator!, only: %i[edit update]
+
+  def index
+    @companies = Company.all
+  end
 
   def show;end
 

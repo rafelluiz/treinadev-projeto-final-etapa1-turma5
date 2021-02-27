@@ -1,2 +1,9 @@
 <%= link_to 'Registrar uma vaga', new_job_path %>
-<%= render 'collaborator', {collaborator_job:@collaborator_job} %>
+<% if collaborator_signed_in? %>
+  <%= render 'collaborator', {collaborator_job:@collaborator_job} %>
+<% else %>
+  <h1>Empresas</h1>
+  <% @companies.each do |item| %>
+    <dd> <%= link_to item.name, candidate_job_path(item) %></dd>
+  <% end %>
+<% end %>

@@ -1,0 +1,6 @@
+<h1><%=@company.name %></h1>
+<dl>
+  <% @jobs_company.each do |item| %>
+    <dd> <%= link_to item.title, job_path(item.id)  %> </dd>
+  <% end %>
+</dl>

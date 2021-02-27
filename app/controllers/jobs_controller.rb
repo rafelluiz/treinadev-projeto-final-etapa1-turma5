@@ -1,9 +1,18 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[show edit update disabled]
-  before_action :authenticate_collaborator!
+  before_action :authenticate_collaborator!, only: %i[new edit update disabled]
   def index
-    collaborator = current_collaborator
-    @collaborator_job = collaborator.company
+    if collaborator_signed_in?
+      collaborator = current_collaborator
+      @collaborator_job = collaborator.company
+    else
+      @companies = Company.all
+    end
+  end
+
+  def candidate
+    @jobs_company = Job.where(company_id: params[:id])
+    @company = Company.find(params[:id])
   end
 
   def show; end
