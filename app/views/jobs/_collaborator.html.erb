@@ -13,7 +13,14 @@
     <dt>Quantidade de Vagas:</dt>
     <dd><%= item.total_job %></dd>
 
+    <dt>Status</dt>
+    <dd><%= item.disabled? ? 'Desabilitada' : 'Habilitada' %></dd>
     <%= link_to 'Exibir', job_path(item) %>
-    <%= link_to 'Editar', edit_job_path(item) %>
+
+    <% if item.enabled? %>
+      <%= link_to 'Editar', edit_job_path(item) %>
+      <%= link_to 'Desabilitar', disabled_job_path(item), method: :post %>
+    <% end %>
+
   <% end %>
 </dl>

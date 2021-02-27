@@ -91,4 +91,30 @@ feature 'Employee visualizes vacancies' do
     expect(page).to have_content('22/12/2023')
     expect(page).to have_content('2')
   end
+
+  scenario 'and disable vacancy' do
+    collaborator_example = Collaborator.create!(email:'email@example.com',password: 'password')
+    job_program = Job.create!(title: 'Programador',description: 'Estamos a procura de um profissional...',
+                              starting_salary_range: 1000,final_salary_range:2000,level:'junior',
+                              requirements: 'Experiência de 2 anos na função',expiration_date:'23/11/2021',
+                              total_job: 4,company:collaborator_example.company)
+    Company.find(collaborator_example.company.id).update(email:'contact@example.com')
+    login_as collaborator_example, scope: :collaborator
+
+    visit root_path
+    click_on 'Vagas'
+    click_on 'Desabilitar'
+
+    job = Job.last
+
+    expect(current_path).to eq(job_path(job))
+    expect(page).to have_content('Programador')
+    expect(page).to have_content('Estamos a procura de um profissional...')
+    expect(page).to have_content('De R$ 1.000,00 a R$ 2.000,00')
+    expect(page).to have_content('junior')
+    expect(page).to have_content('Experiência de 2 anos na função')
+    expect(page).to have_content('23/11/2021')
+    expect(page).to have_content('4')
+    expect(page).to have_content('Desabilitada')
+  end
 end

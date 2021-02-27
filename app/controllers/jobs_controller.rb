@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[show edit update]
+  before_action :set_job, only: %i[show edit update disabled]
   before_action :authenticate_collaborator!
   def index
     collaborator = current_collaborator
@@ -30,6 +30,11 @@ class JobsController < ApplicationController
     else
       render :edit, notice: 'Job could not be updated.'
     end
+  end
+
+  def disabled
+    @job.disabled!
+    redirect_to @job, notice: 'Job was disabled.'
   end
 
   private

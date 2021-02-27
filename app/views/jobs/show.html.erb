@@ -39,6 +39,7 @@
   <strong>Empresa</strong>
   <%= @job.company.name %>
 </p>
-
-<#%= link_to 'Edit', edit_job_path(@job) %> |
-<#%= link_to 'Back', restaurants_path %>
+<p>
+  <strong>Status</strong>
+  <p> <%= @job.enabled? ? 'Habilitada' : 'Desabilitada' %></p>
+</p>
