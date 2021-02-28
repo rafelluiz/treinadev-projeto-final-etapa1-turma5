@@ -7,11 +7,15 @@ class JobsController < ApplicationController
       @collaborator_job = collaborator.company
     else
       @companies = Company.all
+
     end
+
+    @job_search = Company.select('jobs.*,companies.*,jobs.id as id_job').joins(:jobs).where(
+      'name like ? OR title like ? AND status = 1',"%#{params[:q]}%", "%#{params[:q]}%")
   end
 
   def candidate
-    @jobs_company = Job.where(company_id: params[:id])
+    @jobs_company = Job.where(company_id: params[:id]).enabled
     @company = Company.find(params[:id])
   end
 

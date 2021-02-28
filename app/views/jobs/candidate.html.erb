@@ -1,6 +1,21 @@
-<h1><%=@company.name %></h1>
+<h1>Vagas da Empresa: <%=@company.name %></h1>
 <dl>
   <% @jobs_company.each do |item| %>
-    <dd> <%= link_to item.title, job_path(item.id)  %> </dd>
+    <dt><strong>Título:</strong></dt>
+    <dd> <%= item.title %></dd>
+
+    <dt>Nível</dt>
+    <dd><%= item.level %></dd>
+
+    <dt>Expira em:</dt>
+    <dd><%= l(item.expiration_date) %></dd>
+
+    <dt>Quantidade de Vagas:</dt>
+    <dd><%= item.total_job %></dd>
+
+    <dt>Status</dt>
+    <dd><%= item.disabled? ? 'Desabilitada' : 'Habilitada' %></dd>
+    <%= link_to 'Exibir', job_path(item) %>
+
   <% end %>
 </dl>

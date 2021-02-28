@@ -1,9 +1,40 @@
 <%= link_to 'Registrar uma vaga', new_job_path %>
 <% if collaborator_signed_in? %>
-  <%= render 'collaborator', {collaborator_job:@collaborator_job} %>
+  <%= render 'all_jobs', { collaborator_job:@collaborator_job} %>
 <% else %>
   <h1>Empresas</h1>
   <% @companies.each do |item| %>
     <dd> <%= link_to item.name, candidate_job_path(item) %></dd>
   <% end %>
 <% end %>
+
+<%= form_with url: jobs_path, method: :get do %>
+  <%= label_tag :q, 'Busca:' %>
+  <%= text_field_tag :q %>
+  <%= submit_tag 'Pesquisar' %>
+<% end %>
+
+<!-- Resultado da busca -->
+<% unless params[:q].nil? %>
+  <dl>
+    <% @job_search.each do |item| %>
+      <dt><strong>Título:</strong></dt>
+      <dd> <%= item.title %></dd>
+
+      <dt>Nível</dt>
+      <dd><%= item.level %></dd>
+
+      <dt>Empresa</dt>
+      <dd><%= item.name %></dd>
+
+      <dt>Expira em:</dt>
+      <dd><%= l(item.expiration_date.to_date) %></dd>
+
+      <dt>Quantidade de Vagas:</dt>
+      <dd><%= item.total_job %></dd>
+
+      <%= link_to 'Exibir', job_path(item.id_job) %>
+
+    <% end %>
+  </dl>
+<%  end %>
