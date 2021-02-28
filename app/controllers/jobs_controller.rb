@@ -10,12 +10,14 @@ class JobsController < ApplicationController
 
     end
 
-    @job_search = Company.select('jobs.*,companies.*,jobs.id as id_job').joins(:jobs).where(
-      'name like ? OR title like ? AND status = 1',"%#{params[:q]}%", "%#{params[:q]}%")
+    @job_search = Job.select('jobs.*,companies.*,jobs.id as id_job').joins(:company).where(
+      "name like ? OR title like ? AND status = 1", "%#{params[:q]}%", "%#{params[:q]}%" ).
+      select{|item| item.expiration_date.to_date >= Date.today}
   end
 
   def candidate
-    @jobs_company = Job.where(company_id: params[:id]).enabled
+    @jobs_company = Job.where(company_id: params[:id]).enabled.
+      select{|item| item.expiration_date.to_date >= Date.today}
     @company = Company.find(params[:id])
   end
 
