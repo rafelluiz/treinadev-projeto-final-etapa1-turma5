@@ -53,7 +53,31 @@ feature 'Candidate ' do
     expect(current_path).to eq jobs_path
     expect(page).to have_content 'Programador'
     expect(page).not_to have_content 'Programador Ruby'
+  end
 
+  scenario 'and search for empresa ' do
+    collaborator_example = Collaborator.create!(email:'email@example.com',password: 'password')
+    collaborator_miyazaki = Collaborator.create!(email:'email@miyazaki.com',password: 'password')
 
+    job_program = Job.create!(title: 'Programador C#',description: 'Estamos a procura de um profissional...',
+                              starting_salary_range: 1000,final_salary_range:2000,level:'junior',
+                              requirements: 'Experiência de 2 anos na função',expiration_date:'23/11/2021',
+                              total_job: 4,company:collaborator_example.company)
+    job_ruby = Job.create!(title: 'Programador Ruby',description: 'Estamos a procura de um profissional...',
+                           starting_salary_range: 1000,final_salary_range:2000,level:'full',
+                           requirements: 'Experiência de 5 anos na função',expiration_date:'02/12/2021',
+                           total_job: 4,company:collaborator_miyazaki.company)
+
+    Company.find(collaborator_example.company.id).update(email:'contact@example.com')
+    Company.find(collaborator_miyazaki.company.id).update(email:'contact@miyazaki.com')
+
+    visit root_path
+    click_on 'Vagas'
+    fill_in 'Busca:', with: 'miyazaki'
+    click_on 'Pesquisar'
+
+    expect(current_path).to eq jobs_path
+    expect(page).not_to have_content 'Programador C#'
+    expect(page).to have_content 'Programador Ruby'
   end
 end
