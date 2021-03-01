@@ -55,7 +55,7 @@ feature 'Candidate ' do
     expect(page).not_to have_content 'Programador Ruby'
   end
 
-  scenario 'and search for empresa ' do
+  scenario 'and search for company ' do
     collaborator_example = Collaborator.create!(email:'email@example.com',password: 'password')
     collaborator_miyazaki = Collaborator.create!(email:'email@miyazaki.com',password: 'password')
 
@@ -79,5 +79,10 @@ feature 'Candidate ' do
     expect(current_path).to eq jobs_path
     expect(page).not_to have_content 'Programador C#'
     expect(page).to have_content 'Programador Ruby'
+  end
+
+  xscenario 'and apply for a position' do
+    collaborator_example = Collaborator.create!(email:'email@example.com',password: 'password')
+
   end
 end
