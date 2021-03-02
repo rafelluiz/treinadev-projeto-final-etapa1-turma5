@@ -6,4 +6,7 @@ class Candidate < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates_presence_of :full_name, :social_name, :cpf, :telephone, :biography
+
+  has_many :applies
+  has_many :jobs, through: :applies
 end

@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   devise_for :collaborators, path: 'collaborators'
   root 'home#index'
 
-  resources :jobs, only: %i[index new create show edit update candidate] do
+  resources :jobs, only: %i[index new create show edit update candidate apply] do
     member do
+      post 'apply'
       post 'disabled'
       get 'candidate'
     end

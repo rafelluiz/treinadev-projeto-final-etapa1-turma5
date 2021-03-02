@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[show edit update disabled]
+  before_action :set_job, only: %i[show edit update disabled apply]
   before_action :authenticate_collaborator!, only: %i[new edit update disabled]
   def index
     if collaborator_signed_in?
@@ -19,6 +19,11 @@ class JobsController < ApplicationController
     @jobs_company = Job.where(company_id: params[:id]).enabled.
       select{|item| item.expiration_date.to_date >= Date.today}
     @company = Company.find(params[:id])
+  end
+
+  def apply
+    @job.apply!(current_candidate)
+    redirect_to jobs_path, notice: 'Apply was successful'
   end
 
   def show; end

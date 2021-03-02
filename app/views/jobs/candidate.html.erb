@@ -16,6 +16,7 @@
     <dt>Status</dt>
     <dd><%= item.disabled? ? 'Desabilitada' : 'Habilitada' %></dd>
     <%= link_to 'Exibir', job_path(item) %>
+    <%= link_to 'Candidatar', apply_job_path(item), method: :post%>
 
   <% end %>
 </dl>

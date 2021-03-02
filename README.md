@@ -1,4 +1,4 @@
-# Sistema de Divulgação de oportunidades
+# Balcão de Empregos
 
 Este projeto consiste na criação de uma plataforma Web para que pessoas dos
 departamentos de RH de empresas criem vagas e sejam capazes de gerenciar todo processo
