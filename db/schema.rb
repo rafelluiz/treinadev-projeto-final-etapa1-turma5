@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_203807) do
+ActiveRecord::Schema.define(version: 2021_03_02_120919) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 2021_03_01_203807) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "message"
+    t.decimal "salary_proposal"
+    t.date "start_date"
     t.index ["candidate_id"], name: "index_applies_on_candidate_id"
     t.index ["job_id"], name: "index_applies_on_job_id"
   end
