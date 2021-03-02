@@ -82,7 +82,7 @@ feature 'Candidate ' do
   end
 
   scenario 'and apply for a position' do
-    collaborator_example = Collaborator.create!(email:'email@example.com',password: 'password')
+    collaborator_example = Collaborator.create!(email:'email@example.com',password: '123456')
     job_program = Job.create!(title: 'Programador C#',description: 'Estamos a procura de um profissional...',
                               starting_salary_range: 1000,final_salary_range:2000,level:'junior',
                               requirements: 'Experiência de 2 anos na função',expiration_date:'23/11/2021',
@@ -99,7 +99,7 @@ feature 'Candidate ' do
     click_on 'example'
     click_on 'Candidatar'
 
-    applies = job_program.candidates.map{|item| item.email}
+    applies = job_program.candidates.map(&:email)
 
     expect(current_path).to eq jobs_path
     expect(applies).to include 'candidate@gmail.com'

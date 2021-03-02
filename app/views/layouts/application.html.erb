@@ -11,11 +11,14 @@
   </head>
 
   <body>
+  <br><br>
   <%= link_to 'Candidato', new_candidate_session_path %>
 
   <% if collaborator_signed_in? && !current_collaborator.company.registration_completed? && current_collaborator.admin? %>
     <p>Conclua o Cadastro da Empresa. Só assim poderá cadastrar vagas.</p>
     <%= link_to 'Concluir Cadastro', edit_company_path(current_collaborator.company)  %>
+  <% elsif  collaborator_signed_in?%>
+    <%= link_to 'Candidaturas', applies_path %>
   <% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
