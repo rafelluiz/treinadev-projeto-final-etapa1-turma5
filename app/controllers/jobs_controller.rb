@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[show edit update disabled apply]
-  before_action :authenticate_collaborator!, only: %i[new edit update disabled]
+  before_action :authenticate_collaborator!, only: %i[ new edit update disabled ]
+  before_action :authenticate_candidate!, only: %i[ apply ]
   def index
     if collaborator_signed_in?
       collaborator = current_collaborator

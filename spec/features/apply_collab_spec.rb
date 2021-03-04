@@ -11,6 +11,7 @@ feature 'Application collaborator ' do
     candidate = Candidate.create!(email:'candidate@gmail.com', password:'123456', full_name:'Fulano de Tal',
                                   social_name:'Fulano', cpf:'111.111.111-11', telephone:'3197861234',
                                   biography:'Conclui bacharel em sistemas de ....')
+    job_program.apply!(candidate)
 
     login_as collaborator_example, scope: :collaborator
     visit root_path
@@ -21,8 +22,6 @@ feature 'Application collaborator ' do
     expect(current_path).to eq candidate_path(candidate)
     expect(page).to have_content 'candidate@gmail.com'
     expect(page).to have_content 'Fulano de Tal'
-    expect(page).to have_content 'Programador'
-
-
+    expect(page).to have_content '111.111.111-11'
   end
 end

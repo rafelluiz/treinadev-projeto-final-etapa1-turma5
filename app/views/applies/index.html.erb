@@ -1,0 +1,9 @@
+<h1>Applies</h1>
+<dl>
+  <%@jobs_company.each do |job| %>
+    <dt><strong><%= job.title %></strong></dt>
+    <% job.candidates.each do |candidate| %>
+      <dd><%= link_to candidate.full_name,candidate_path(candidate.id) %> </dd>
+    <% end %>
+  <% end %>
+</dl>

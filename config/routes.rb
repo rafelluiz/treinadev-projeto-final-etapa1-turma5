@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   end
   resources :companies, only: %i[index edit update show]
   resources :applies, only: %i[index]
+  resources :candidates, only: %i[show]
 end
