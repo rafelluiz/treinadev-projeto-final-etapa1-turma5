@@ -41,3 +41,6 @@ yarn-debug.log*
 
 # JetBrains
 .idea
+
+# simplecov coverage
+coverage
