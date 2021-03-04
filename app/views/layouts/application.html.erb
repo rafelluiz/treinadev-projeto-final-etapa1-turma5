@@ -13,7 +13,7 @@
   <body>
   <br><br>
   <%= link_to 'Candidato', new_candidate_session_path %>
-
+  <%= link_to 'Colaborador', new_collaborator_session_path %>
   <% if collaborator_signed_in? && !current_collaborator.company.registration_completed? && current_collaborator.admin? %>
     <p>Conclua o Cadastro da Empresa. Só assim poderá cadastrar vagas.</p>
     <%= link_to 'Concluir Cadastro', edit_company_path(current_collaborator.company)  %>
