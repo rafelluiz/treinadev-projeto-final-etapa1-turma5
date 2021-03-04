@@ -23,8 +23,11 @@ class JobsController < ApplicationController
   end
 
   def apply
-    @job.apply!(current_candidate)
-    redirect_to jobs_path, notice: 'ApplyFor was successful'
+    if @job.apply!(current_candidate)
+      redirect_to jobs_path, notice: 'ApplyFor was successful'
+    else
+      redirect_to jobs_path, notice: 'ApplyFor failed'
+    end
   end
 
   def show; end
