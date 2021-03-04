@@ -1,4 +1,4 @@
-class Apply < ApplicationRecord
+class ApplyFor < ApplicationRecord
   belongs_to :candidate
   belongs_to :job
 

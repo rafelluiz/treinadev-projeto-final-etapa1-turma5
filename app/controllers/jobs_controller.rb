@@ -24,7 +24,7 @@ class JobsController < ApplicationController
 
   def apply
     @job.apply!(current_candidate)
-    redirect_to jobs_path, notice: 'Apply was successful'
+    redirect_to jobs_path, notice: 'ApplyFor was successful'
   end
 
   def show; end

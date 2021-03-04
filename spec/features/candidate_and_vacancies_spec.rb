@@ -103,7 +103,7 @@ feature 'Candidate ' do
 
     expect(current_path).to eq jobs_path
     expect(applies).to include 'candidate@gmail.com'
-    expect(page).to have_content 'Apply was successful'
+    expect(page).to have_content 'ApplyFor was successful'
 
 
   end

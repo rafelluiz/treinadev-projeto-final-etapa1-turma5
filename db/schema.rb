@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_120919) do
+ActiveRecord::Schema.define(version: 2021_03_04_144737) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_120919) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "applies", force: :cascade do |t|
+  create_table "apply_fors", force: :cascade do |t|
     t.integer "candidate_id", null: false
     t.integer "job_id", null: false
     t.integer "status", default: 0, null: false
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2021_03_02_120919) do
     t.text "message"
     t.decimal "salary_proposal"
     t.date "start_date"
-    t.index ["candidate_id"], name: "index_applies_on_candidate_id"
-    t.index ["job_id"], name: "index_applies_on_job_id"
+    t.index ["candidate_id"], name: "index_apply_fors_on_candidate_id"
+    t.index ["job_id"], name: "index_apply_fors_on_job_id"
   end
 
   create_table "candidates", force: :cascade do |t|
@@ -118,8 +118,8 @@ ActiveRecord::Schema.define(version: 2021_03_02_120919) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "applies", "candidates"
-  add_foreign_key "applies", "jobs"
+  add_foreign_key "apply_fors", "candidates"
+  add_foreign_key "apply_fors", "jobs"
   add_foreign_key "collaborators", "companies"
   add_foreign_key "jobs", "companies"
 end

@@ -1,4 +1,4 @@
-class AppliesController < ApplicationController
+class ApplyForsController < ApplicationController
   before_action :authenticate_collaborator!, only: %i[index]
 
   def index

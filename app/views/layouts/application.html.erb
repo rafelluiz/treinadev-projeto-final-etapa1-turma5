@@ -18,7 +18,7 @@
     <p>Conclua o Cadastro da Empresa. Só assim poderá cadastrar vagas.</p>
     <%= link_to 'Concluir Cadastro', edit_company_path(current_collaborator.company)  %>
   <% elsif  collaborator_signed_in?%>
-    <%= link_to 'Candidaturas', applies_path %>
+    <%= link_to 'Candidaturas', apply_fors_path %>
   <% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
