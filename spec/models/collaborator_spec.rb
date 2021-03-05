@@ -1,6 +1,20 @@
 require 'rails_helper'
 
 describe Collaborator do
+  context 'validation' do
+    it 'successfully' do
+      collaborator = Collaborator.create(email: 'admin@user.com',password: 'password')
+
+      expect(collaborator.valid?).to eq true
+    end
+    it 'attributes cannot be blank' do
+      collaborator = Collaborator.new
+
+      expect(collaborator.valid?).to eq false
+      expect(collaborator.errors.count).to eq 3
+    end
+  end
+
   context '.is_company' do
     it 'check if the email is not corporate' do
       collaborator = Collaborator.create(email: 'admin@gmail.com',password: 'password')
