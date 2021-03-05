@@ -18,7 +18,8 @@ class Collaborator < ApplicationRecord
 
     if company.count.zero?
       company_created = Company.create!(name: company_name,
-                                        email_domain: domain_company)
+                                        email_domain: domain_company,
+                                        email:"contact@#{domain_company}")
 
       self.company = company_created
       self.admin = true
