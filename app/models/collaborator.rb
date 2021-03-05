@@ -9,7 +9,7 @@ class Collaborator < ApplicationRecord
 
   before_validation :register_company
 
-  private
+
   def register_company
 
     domain_company = email.split('@')[1]

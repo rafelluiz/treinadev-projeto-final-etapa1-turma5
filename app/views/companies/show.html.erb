@@ -9,7 +9,7 @@
 </p>
 
 <p>
-  <%= image_tag(@company.logo) %>
+  <%= image_tag(@company.logo) unless @company.logo.nil? %>
 </p>
 
 <p>
