@@ -7,6 +7,8 @@ class Job < ApplicationRecord
   has_many :candidates, through: :apply_fors
 
 
+
+
   def apply!(candidate)
     id_job = self.id
     id_candidate = candidate.id

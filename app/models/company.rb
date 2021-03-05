@@ -3,6 +3,8 @@ class Company < ApplicationRecord
   has_many :collaborators
   has_many :jobs
 
+  validates :name, :email_domain, :email, presence: true, uniqueness: true
+
   before_update :company_updated
 
   private
