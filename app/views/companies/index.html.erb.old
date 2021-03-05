@@ -1,5 +1,5 @@
 <% if @companies.blank? %>
-  <div class="warning">Nenhuma promoção cadastrada</div>
+  <div class="warning">Nenhuma Empresa encontrada.</div>
 <% else %>
   <dl>
     <% @companies.each do |company| %>

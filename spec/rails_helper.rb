@@ -7,8 +7,12 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'capybara/rails'
 require 'simplecov'
-SimpleCov.start 'rails'
-puts "required simplecov"
+
+SimpleCov.start 'rails' do
+  # Filters
+  add_filter %w[app/jobs app/mailers app/channels app/helpers app/models/application_record.rb]
+end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

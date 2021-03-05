@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
   before_action :authenticate_collaborator!, only: %i[edit update]
 
   def index
-    @companies = Company.all
+    #@companies = Company.all
   end
 
   def show;end
@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
     if @company.update(company_params)
       redirect_to @company, notice: 'Company was successfully updated.'
     else
-      render :edit,notice: 'Company was not updated.'
+      render :edit, notice: 'Company was not updated.'
     end
   end
 
